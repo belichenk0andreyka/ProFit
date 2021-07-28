@@ -8,12 +8,11 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {Button, SafeAreaView, Text, useColorScheme} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Navigation} from 'react-native-navigation';
 
-const App: () => Node = props => {
+const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -23,26 +22,27 @@ const App: () => Node = props => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <Text>app</Text>
-      <Button
-        title="Push Settings Screen"
-        color="#710ce3"
-        onPress={() =>
-          Navigation.push(props.componentId, {
-            component: {
-              name: 'Settings',
-              options: {
-                topBar: {
-                  title: {
-                    text: 'Settings',
-                  },
-                },
-              },
-            },
-          })
-        }
-      />
     </SafeAreaView>
   );
 };
+
+// const styles = StyleSheet.create({
+//   sectionContainer: {
+//     marginTop: 32,
+//     paddingHorizontal: 24,
+//   },
+//   sectionTitle: {
+//     fontSize: 24,
+//     fontWeight: '600',
+//   },
+//   sectionDescription: {
+//     marginTop: 8,
+//     fontSize: 18,
+//     fontWeight: '400',
+//   },
+//   highlight: {
+//     fontWeight: '700',
+//   },
+// });
 
 export default App;
